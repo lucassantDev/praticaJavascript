@@ -1,0 +1,32 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+section{
+  width: 100%;
+  height: 100vh;
+}
+
+#menu-lateral{
+  background-color: chocolate;
+  width: 300px;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 0;
+  margin-left: 1520px;
+  transition: all .7s;
+}
+
+.aparecer-menu{
+  transition: all .7s;
+  margin-left: 1000px;
+}
+
+ul li{
+  margin: 15px 0 15px 0;
+}
