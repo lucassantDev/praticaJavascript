@@ -55,3 +55,66 @@ class User{
 
 User.showMessage();
 // -------------------------------------------------------------
+
+
+class Animal{
+    constructor(nomeAnimal, pesoAnimal,){
+        this.nomeAnimal = nomeAnimal;
+        this.pesoAnimal = pesoAnimal;
+
+        console.log(`${this.nomeAnimal} é o nome do animal e pesa kg ${this.pesoAnimal}`)
+    }
+}
+
+const animal = new Animal('Duck', 54.3)
+
+
+class Cachorro extends Animal{
+    constructor(nomeAnimal, pesoAnimal, racaCachorro){
+        // herdando parametros da classe pai
+        super(nomeAnimal, pesoAnimal)
+
+        this.racaCachorro = racaCachorro
+
+        console.log(`${this.racaCachorro} é a raça do cachorro ${this.nomeAnimal}, que pesa kg ${this.pesoAnimal}`)
+    }
+
+
+    acaoCachorro(){
+        console.log('Latir')
+    }
+
+}
+
+
+const cachorro = new Cachorro('Duck', 52.3, 'Pastor Alemão')
+cachorro.acaoCachorro();
+
+
+class Aluno{
+    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
+        this.nomeAluno = nomeAluno
+        this.idadeAluno = idadeAluno
+        this.cursoAluno = cursoAluno
+        this.turnoAluno = turnoAluno
+
+        // console.log(`${nomeAluno} teve sua matrícula efetuada no curso de ${cursoAluno}`)
+    }
+
+}
+
+const aluno = new Aluno('Lucas', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite') 
+
+class AcaoAluno extends Aluno{
+
+    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
+        super(nomeAluno, idadeAluno, cursoAluno, turnoAluno)
+    }
+    
+    mudancaDeTurno(){
+        console.log(`${this.nomeAluno} mudou o turno do curso. Da ${this.turnoAluno}, o turno foi mudado para a manhã`)
+    }
+}
+
+const acaoAluno = new AcaoAluno('Ferreira', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite')
+acaoAluno.mudancaDeTurno()
