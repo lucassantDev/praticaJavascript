@@ -123,3 +123,35 @@ class acaoCaneta extends Caneta{
 
 const caneta02 = new acaoCaneta(); 
 caneta02.escrevendo();
+
+const cachorro = new Cachorro('Duck', 52.3, 'Pastor Alemão')
+cachorro.acaoCachorro();
+
+
+class Aluno{
+    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
+        this.nomeAluno = nomeAluno
+        this.idadeAluno = idadeAluno
+        this.cursoAluno = cursoAluno
+        this.turnoAluno = turnoAluno
+
+        // console.log(`${nomeAluno} teve sua matrícula efetuada no curso de ${cursoAluno}`)
+    }
+
+}
+
+const aluno = new Aluno('Lucas', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite') 
+
+class AcaoAluno extends Aluno{
+
+    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
+        super(nomeAluno, idadeAluno, cursoAluno, turnoAluno)
+    }
+    
+    mudancaDeTurno(){
+        console.log(`${this.nomeAluno} mudou o turno do curso. Da ${this.turnoAluno}, o turno foi mudado para a manhã`)
+    }
+}
+
+const acaoAluno = new AcaoAluno('Ferreira', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite')
+acaoAluno.mudancaDeTurno()
