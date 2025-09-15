@@ -42,6 +42,39 @@ class Cachorro extends Animal{
 const cachorro1 = new Cachorro();
 cachorro1.acaoAnimal();
 
+
+const cachorro = new Cachorro('Duck', 52.3, 'Pastor Alemão')
+cachorro.acaoAnimal();
+
+
+class Aluno{
+    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
+        this.nomeAluno = nomeAluno
+        this.idadeAluno = idadeAluno
+        this.cursoAluno = cursoAluno
+        this.turnoAluno = turnoAluno
+
+        // console.log(`${nomeAluno} teve sua matrícula efetuada no curso de ${cursoAluno}`)
+    }
+
+}
+
+const aluno = new Aluno('Lucas', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite') 
+
+class AcaoAluno extends Aluno{
+
+    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
+        super(nomeAluno, idadeAluno, cursoAluno, turnoAluno)
+    }
+    
+    mudancaDeTurno(){
+        console.log(`${this.nomeAluno} mudou o turno do curso. Da ${this.turnoAluno}, o turno foi mudado para a manhã`)
+    }
+}
+
+const acaoAluno = new AcaoAluno('Ferreira', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite')
+acaoAluno.mudancaDeTurno()
+
 // -------------------------------------------------------------
 
 
@@ -77,6 +110,7 @@ try{
     }
 
 }
+
 
 // classe lâmpada -----------------------------
 class Lampada{
@@ -124,34 +158,93 @@ class acaoCaneta extends Caneta{
 const caneta02 = new acaoCaneta(); 
 caneta02.escrevendo();
 
-const cachorro = new Cachorro('Duck', 52.3, 'Pastor Alemão')
-cachorro.acaoCachorro();
 
+class Livro{
+    constructor(nomeLivro, qtdPaginas, anoPublicacao, genero){
+        this.nomeLivro = nomeLivro;
+        this.qtdPaginas = qtdPaginas;
+        this.anoPublicacao = anoPublicacao;
+        this.genero = genero;
 
-class Aluno{
-    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
-        this.nomeAluno = nomeAluno
-        this.idadeAluno = idadeAluno
-        this.cursoAluno = cursoAluno
-        this.turnoAluno = turnoAluno
-
-        // console.log(`${nomeAluno} teve sua matrícula efetuada no curso de ${cursoAluno}`)
-    }
-
-}
-
-const aluno = new Aluno('Lucas', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite') 
-
-class AcaoAluno extends Aluno{
-
-    constructor(nomeAluno, idadeAluno, cursoAluno, turnoAluno){
-        super(nomeAluno, idadeAluno, cursoAluno, turnoAluno)
-    }
-    
-    mudancaDeTurno(){
-        console.log(`${this.nomeAluno} mudou o turno do curso. Da ${this.turnoAluno}, o turno foi mudado para a manhã`)
+        console.log(` O livro ${this.nomeLivro} tem ${this.qtdPaginas} páginas, lançado em ${this.anoPublicacao} e seu gênero é ${this.genero}`)
     }
 }
 
-const acaoAluno = new AcaoAluno('Ferreira', 19, 'Analise de Desenvolvimento de Sistemas', 'Noite')
-acaoAluno.mudancaDeTurno()
+const primeiroLivro = new Livro('Capitães de Areia', 270, 1937, 'Romance')
+
+
+class marcandoLivro extends Livro{
+
+    constructor(nomeLivro){
+        super(nomeLivro, 270, 1937, 'Romance')
+    }
+
+    leitura(){
+        console.log(`Atualmente, estou na página 45 do livro ${this.nomeLivro}`)
+    }
+}
+
+
+const pagLivro = new marcandoLivro('Capitães de Areia');
+pagLivro.leitura()
+
+
+class AlbumMusica {
+    constructor(nomeAlbum, faixas, ano){
+        this.nomeAlbum = nomeAlbum;
+        this.faixas = faixas;
+        this.ano = ano;
+
+        console.log(`${this.nomeAlbum} - ${this.faixas} faixas - ${this.ano}`);
+    }
+}
+
+
+const album = new AlbumMusica('Da Lama ao Caos', 13, '1994');
+
+class musicaAlbum extends AlbumMusica{
+    constructor(nomeAlbum, faixas, ano, nomeMusica, numeroFaixa){
+        super(nomeAlbum, faixas, ano)
+        this.nomeMusica = nomeMusica;
+        this.numeroFaixa = numeroFaixa;
+
+        console.log(`Estou na faixa ${this.numeroFaixa} - ${this.nomeMusica} do album ${this.nomeAlbum}`)
+    }
+}
+
+const faixaMusica = new musicaAlbum('Da Lama ao Caos', 13, 1994, 'A Cidade', 3);
+
+
+class jogador{
+    constructor(nomeJogador, idadeJogador, golsMarcados, timeJogador){
+        this.nomeJogador = nomeJogador;
+        this.idadeJogador = idadeJogador;
+        this.golsMarcados = golsMarcados;
+        this.timesJogador = timeJogador;
+
+        console.log(`${nomeJogador} atual no time ${timeJogador}`)
+    }
+
+    golsNaTemporada(){
+        console.log('')
+    }
+}
+
+class jogadorAposentado extends jogador{
+
+    constructor(nomeJogador, idadeJogador, golsMarcados, timeJogador){
+        super(nomeJogador, idadeJogador, golsMarcados, timeJogador)
+    }
+
+    golsNaTemporada(){
+        console.log(`${this.nomeJogador} marcou 20 gols na temporada`)
+    }
+}
+
+const jogadorN1 = new jogador('Neymar JR', 33, 433, 'Santos FC');
+const jogadorN2 = new jogadorAposentado('Didier Drogba', 39, 410, 'Chelsea FC')
+jogadorN2.golsNaTemporada();
+
+
+
+
