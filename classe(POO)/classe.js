@@ -47,11 +47,79 @@ cachorro1.acaoAnimal();
 
 
 // método estático -> utilizado sem precisar instaciar a classe
-class User{
+class DataHora{
     static showMessage(){
-        console.log('Essa é a mensagem!');
+        const hora = Date()
+        console.log(hora);
     }
 }
 
-User.showMessage();
+DataHora.showMessage();
 // -------------------------------------------------------------
+
+
+// trabalhando com tratamento de erro juntamente com classe
+
+class MyCustomError{
+    constructor(message){
+        this.message = 'CLASSE DE ERRO CUSTOMIZADA:' + message;
+    }
+}
+
+
+try{
+    throw new MyCustomError('Erro personalizado!')
+} catch(error){
+    if(error instanceof MyCustomError){
+        console.log(error.message)
+    }else{
+        console.log('Não foi possível executar')
+    }
+
+}
+
+// classe lâmpada -----------------------------
+class Lampada{
+    constructor(marca, watts){
+        this.marca = marca;
+        this.watts = watts;
+
+        // console.log(`A lâmpada é da marca ${this.marca} possuindo ${this.watts} watts`)
+    }
+    
+}
+
+const lampada01 = new Lampada('Avant', 12);
+
+
+class acaoLampada extends Lampada{
+
+    lampadaLigada(){
+        console.log('A lâmpada está ligada');
+    }
+}
+
+const lampada02 = new acaoLampada;
+lampada02.lampadaLigada();
+
+// ---------------------------------
+
+class Caneta{
+    constructor(cor, marca, ponta){
+        this.cor = cor;
+        this.marca = marca;
+        this.ponta = ponta;
+    }
+}
+
+const caneta01 = new Caneta('Azul', 'BIC', 1,6)
+
+class acaoCaneta extends Caneta{
+    
+    escrevendo(){
+        console.log('Escrevendo texto')
+    }
+}
+
+const caneta02 = new acaoCaneta(); 
+caneta02.escrevendo();
