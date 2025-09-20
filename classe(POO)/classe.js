@@ -246,5 +246,45 @@ const jogadorN2 = new jogadorAposentado('Didier Drogba', 39, 410, 'Chelsea FC')
 jogadorN2.golsNaTemporada();
 
 
+class Computer{
+    constructor(estadoMaquina, appAtivo){
+        this.estadoMaquina = estadoMaquina;
+        this.appAtivo = appAtivo
+    }
+
+    app(){
+        console.log(`Abrindo ${this.appAtivo}`)
+    }
+
+    status(){
+        if(this.estadoMaquina == true){
+            console.log('O computador está ligado')
+        }
+        else{
+            console.log('O computador está desligado.')
+        }
+    }
+
+    reiniciando(){
+        console.log('Reiniciando o sistema...')
+    }
+
+}
+
+const computer00 = new Computer(false, 'Notion')
+computer00.status()
+
+const computer01 = new Computer(true, 'Notion')
+computer01.status()
+computer01.app()
+computer01.reiniciando()
+
+
+
+
+
+
+
+
 
 
